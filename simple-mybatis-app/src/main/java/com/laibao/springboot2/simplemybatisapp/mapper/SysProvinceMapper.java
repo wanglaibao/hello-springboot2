@@ -2,9 +2,6 @@ package com.laibao.springboot2.simplemybatisapp.mapper;
 
 import com.laibao.springboot2.simplemybatisapp.domain.SysProvince;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 @Mapper
 public interface SysProvinceMapper {
