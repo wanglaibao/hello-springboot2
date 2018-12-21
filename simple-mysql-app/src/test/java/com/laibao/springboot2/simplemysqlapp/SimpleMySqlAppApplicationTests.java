@@ -1,13 +1,17 @@
 package com.laibao.springboot2.simplemysqlapp;
 
 import com.alibaba.fastjson.JSON;
+import com.laibao.springboot2.simplemysqlapp.domain.SysUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +45,31 @@ public class SimpleMySqlAppApplicationTests {
 		}catch (RuntimeException ex) {
 			System.out.println("failure");
 			throw ex;
+		}
+	}
+
+	@Test
+	public void testGetAllSysUsers() {
+		String sql = "select * from sys_user";
+		List<SysUser> userList =
+				(List<SysUser>) jdbcTemplate.query(sql, new RowMapper<SysUser>() {
+					@Override
+					public SysUser mapRow(ResultSet rs, int rowNum) throws SQLException {
+						SysUser user = new SysUser();
+						user.setUserId(rs.getString("user_id"));
+						user.setInvestorId(rs.getString("investor_id"));
+						user.setUserType(rs.getString("user_type"));
+						user.setUserName(rs.getString("user_name"));
+						user.setUserNickname(rs.getString("user_nickname"));
+						user.setPassword(rs.getString("password"));
+						user.setPhone(rs.getString("phone"));
+						user.setEmail(rs.getString("email"));
+						return user;
+					}
+				});
+		System.out.println("查询成功：");
+		for (SysUser user : userList) {
+			System.out.println(JSON.toJSONString(user));
 		}
 	}
 }
