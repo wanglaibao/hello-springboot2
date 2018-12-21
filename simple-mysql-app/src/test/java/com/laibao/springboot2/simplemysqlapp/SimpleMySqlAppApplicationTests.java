@@ -7,11 +7,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -51,10 +49,7 @@ public class SimpleMySqlAppApplicationTests {
 	@Test
 	public void testGetAllSysUsers() {
 		String sql = "select * from sys_user";
-		List<SysUser> userList =
-				(List<SysUser>) jdbcTemplate.query(sql, new RowMapper<SysUser>() {
-					@Override
-					public SysUser mapRow(ResultSet rs, int rowNum) throws SQLException {
+		List<SysUser> userList = jdbcTemplate.query(sql, (ResultSet rs, int rowNum) -> {
 						SysUser user = new SysUser();
 						user.setUserId(rs.getString("user_id"));
 						user.setInvestorId(rs.getString("investor_id"));
@@ -65,7 +60,6 @@ public class SimpleMySqlAppApplicationTests {
 						user.setPhone(rs.getString("phone"));
 						user.setEmail(rs.getString("email"));
 						return user;
-					}
 				});
 		System.out.println("查询成功：");
 		for (SysUser user : userList) {
