@@ -8,6 +8,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<modules>
 		<module>simple-hello-app</module>
+		<module>simple-mysql-app</module>
 	</modules>
 	<packaging>pom</packaging>
   
