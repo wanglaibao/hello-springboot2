@@ -1,9 +1,9 @@
 package com.laibao.springboot2.traditionalmybatisapp.mapper;
 
+import com.laibao.springboot2.traditionalmybatisapp.annotation.MybatisMapper;
 import com.laibao.springboot2.traditionalmybatisapp.domain.SysProvince;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
+@MybatisMapper
 public interface SysProvinceMapper {
     int deleteByPrimaryKey(String provinceId);
 

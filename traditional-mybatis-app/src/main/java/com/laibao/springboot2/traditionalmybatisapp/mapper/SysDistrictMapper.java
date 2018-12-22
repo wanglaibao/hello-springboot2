@@ -1,12 +1,12 @@
 package com.laibao.springboot2.traditionalmybatisapp.mapper;
 
+import com.laibao.springboot2.traditionalmybatisapp.annotation.MybatisMapper;
 import com.laibao.springboot2.traditionalmybatisapp.domain.SysDistrict;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
+@MybatisMapper
 public interface SysDistrictMapper {
 
     int deleteByPrimaryKey(SysDistrict key);

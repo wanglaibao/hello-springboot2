@@ -1,11 +1,12 @@
 package com.laibao.springboot2.traditionalmybatisapp.mapper;
 
+import com.laibao.springboot2.traditionalmybatisapp.annotation.MybatisMapper;
 import com.laibao.springboot2.traditionalmybatisapp.domain.SysCity;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@MybatisMapper
 public interface SysCityMapper {
 
     int deleteByPrimaryKey(SysCity key);
