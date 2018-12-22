@@ -11,7 +11,8 @@
 		<module>simple-mysql-app</module>
 		<module>simple-druid-app</module>
 		<module>simple-mybatis-app</module>
-	</modules>
+        <module>javaconfig-mybatis-app</module>
+    </modules>
 	<packaging>pom</packaging>
   
     <developers>
