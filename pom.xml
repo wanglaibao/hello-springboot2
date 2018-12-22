@@ -12,6 +12,7 @@
 		<module>simple-druid-app</module>
 		<module>simple-mybatis-app</module>
         <module>javaconfig-mybatis-app</module>
+        <module>traditional-mybatis-app</module>
     </modules>
 	<packaging>pom</packaging>
   
