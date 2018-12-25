@@ -13,6 +13,8 @@
 		<module>simple-mybatis-app</module>
         <module>javaconfig-mybatis-app</module>
         <module>traditional-mybatis-app</module>
+        <module>simple-filter-app</module>
+        <module>simple-jpa-app</module>
     </modules>
 	<packaging>pom</packaging>
   
